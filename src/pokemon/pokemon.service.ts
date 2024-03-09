@@ -77,8 +77,17 @@ export class PokemonService {
     }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} pokemon`;
+  async remove(id: string) {
+    // const pokemon = await this.findOne(id);
+
+    // await pokemon.deleteOne();
+
+    const result = await this.pokemonModel.findByIdAndDelete(id);
+
+    if (!result)
+      throw new NotFoundException(`Can't found pokemon with MongoId: ${id}`);
+
+    return result;
   }
 
   private handleError(error: any, message?: string) {
