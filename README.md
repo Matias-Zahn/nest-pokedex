@@ -24,6 +24,12 @@ npm i @nestjs/cli
 docker-compose up -d
 ```
 
+### Reconstruir la base de Datos
+
+```
+http://localhost:3000/api/seed
+```
+
 ## Stack Usado
 
 - NestJS
